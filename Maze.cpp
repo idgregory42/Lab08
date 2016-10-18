@@ -74,7 +74,7 @@ bool Maze::traverse(int row, int col)
          //IMPORTANT: make use of the boolean that is returned every time you call traverse
 
 		//used this so I wouldn't have to write 4 if statements
-		while(traverse(row, col + 1) || traverse(row, col - 1) || traverse(row + 1, col) || traverse(row - 1, col))
+		while(traverse(row + 1, col) || traverse(row, col + 1)  || traverse(row - 1, col) || traverse(row, col - 1))
 		{
 			done = true;
 			break;
