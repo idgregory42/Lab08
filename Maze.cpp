@@ -6,7 +6,7 @@
 //#include <iostream>
 //using namespace std;
 
-//** look at line 156 and 157
+//look at line 156 and 157!
 
 Maze::Maze(Matrix* mz)
 {
@@ -39,43 +39,34 @@ bool Maze::traverse(int row, int col)
 {
    bool done = false; //assume we are not done unless proven otherwise
 
-   //DO THIS
    //test that the current grid location is a space (i.e. not a wall or already tried)
    if (maze->getElement(row, col) == SPACE)
    {
-
-      //DO THIS
       //now it has been tried so mark it as tried
 
 	  maze->setElement(row, col, TRIED);
 
-	//Sleep(75);	
-      //Sleep(5);  //slow down the maze traversal
-      Sleep(75);	  
+		Sleep(75);	
+		//Sleep(5);  //to slow it down
+
       gui->update();
 
-      //DO THIS
       //check to see if we have arrived at the bottom right corner of the maze
       int height = maze->getNumRows();
       int width = maze->getNumCols();
 
       if (col == width && row == height)
       {
-         done = true;
+        done = true;
       }
       else
       {
+        //make recursive calls that consider all four orthogonal directions
 
-         //DO THIS
-         //make recursive calls that consider all four orthogonal directions
-         //basically, we will try all possible paths until a solution is found
-
-         //IMPORTANT!!
-         //don't use row++ or column++ use row + 1 or col + 1, etc.
-         //IMPORTANT: make use of the boolean that is returned every time you call traverse
-		
 		//used this so I wouldn't have to write 4 if statements
 		//made the path direction the same as Lab 06
+		
+		      //right					//Up                       //left                    //down
 		while(traverse(row + 1, col) || traverse(row, col + 1)  || traverse(row - 1, col) || traverse(row, col - 1))
 		{
 			done = true;
@@ -87,9 +78,7 @@ bool Maze::traverse(int row, int col)
       //if we are done, on the way back recursively we must mark the path that we took as the solution path
       if (done)
       {
-         //DO THIS
-         //mark the path taken as the solution path
-
+            //mark the path taken as the solution path
 			maze->setElement(row, col, PATH);
 
 			gui->update();
@@ -100,10 +89,8 @@ bool Maze::traverse(int row, int col)
          //DO THIS
 			maze->setElement(row, col, BACKTRACK);
 
-		//Sleep(75);
-
-         //Sleep(5);
-		 Sleep(75);
+		Sleep(75);
+		//Sleep(5);
          gui->update();
       }
    }
