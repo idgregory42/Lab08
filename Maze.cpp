@@ -50,7 +50,8 @@ bool Maze::traverse(int row, int col)
 	  maze->setElement(row, col, TRIED);
 
 	//Sleep(75);	
-      Sleep(75);  //slow down the maze traversal
+      //Sleep(5);  //slow down the maze traversal
+      Sleep(75);	  
       gui->update();
 
       //DO THIS
@@ -101,7 +102,8 @@ bool Maze::traverse(int row, int col)
 
 		//Sleep(75);
 
-         Sleep(75);
+         //Sleep(5);
+		 Sleep(75);
          gui->update();
       }
    }
@@ -156,8 +158,8 @@ void Maze::draw(wxDC& dc, int width, int height)
          }
          else if (val == BACKTRACK)
          {
-			//redRect.draw(dc, x_pixel, y_pixel);            
-			redRect.draw(dc, x_pixel, y_pixel); //Didn't like it filling in red
+			redRect.draw(dc, x_pixel, y_pixel);            
+			//whiteRect.draw(dc, x_pixel, y_pixel); //Didn't like it filling in red
          }
          else if (val == PATH)
          {
