@@ -72,8 +72,9 @@ bool Maze::traverse(int row, int col)
          //IMPORTANT!!
          //don't use row++ or column++ use row + 1 or col + 1, etc.
          //IMPORTANT: make use of the boolean that is returned every time you call traverse
-
+		
 		//used this so I wouldn't have to write 4 if statements
+		//made the path direction the same as Lab 6
 		while(traverse(row + 1, col) || traverse(row, col + 1)  || traverse(row - 1, col) || traverse(row, col - 1))
 		{
 			done = true;
